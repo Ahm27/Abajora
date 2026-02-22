@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* ===== Lamp ===== */
+
+.lamp-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.lamp {
+  position: relative;
+  width: 120px;
+  height: 180px;
+}
+
+.shade {
+  width: 120px;
+  height: 90px;
+  background: linear-gradient(#ffcc66, #ff9900);
+  border-radius: 60px 60px 20px 20px;
+  position: absolute;
+  top: 0;
+}
+
+.base {
+  width: 50px;
+  height: 90px;
+  background: #444;
+  position: absolute;
+  bottom: 0;
+  left: 35px;
+  border-radius: 10px;
+}
+
+.light {
+  position: absolute;
+  top: -40px;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255,200,0,0.5), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.lamp.on .light {
+  opacity: 1;
+}
+
+/* ===== Truth Text ===== */
+
+.truth-box {
+  min-height: 80px;
+  margin-bottom: 30px;
+}
+
+#truth {
+  font-size: 22px;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#truth.show {
+  opacity: 1;
+}
+
+/* ===== Button ===== */
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff9900, #ff6600);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
