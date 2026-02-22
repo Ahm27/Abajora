@@ -156,7 +156,15 @@ button {
   cursor: pointer;
   transition: 0.2s ease;
 }
+button {
+  -webkit-tap-highlight-color: transparent;
+}button:focus {
+  outline: none;
+}
 
+button:active {
+  transform: scale(0.98);
+}
 button:hover {
   transform: scale(1.05);
 }
