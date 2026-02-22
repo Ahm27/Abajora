@@ -114,7 +114,7 @@ let isOn = false;
 
 btn.addEventListener("click", () => {
   if (!isOn) {
-    // تشغيل النور
+
     const random = messages[Math.floor(Math.random() * messages.length)];
     message.textContent = random;
 
@@ -126,7 +126,7 @@ btn.addEventListener("click", () => {
     isOn = true;
 
   } else {
-    // اطفاء النور
+    
     lamp.classList.remove("on");
     message.classList.remove("show");
     body.classList.remove("light-mode");
