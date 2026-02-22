@@ -109,11 +109,26 @@ const body = document.body;
 
 let isOn = false;
 
+// 👇 ننسخ الأراي عشان نمسح منها من غير ما نأثر على الأصل
+let remainingQuotes = [...messages];
+
 btn.addEventListener("click", () => {
+
   if (!isOn) {
 
-    const random = messages[Math.floor(Math.random() * messages.length)];
-    message.textContent = random;
+    // لو خلصوا كلهم نرجع نملأها تاني
+    if (remainingQuotes.length === 0) {
+      remainingQuotes = [...messages];
+    }
+
+    // نختار عشوائي
+    const randomIndex = Math.floor(Math.random() * remainingQuotes.length);
+    const selectedQuote = remainingQuotes[randomIndex];
+
+    // نحذف اللي ظهر
+    remainingQuotes.splice(randomIndex, 1);
+
+    message.textContent = selectedQuote;
 
     lamp.classList.add("on");
     message.classList.add("show");
@@ -123,7 +138,7 @@ btn.addEventListener("click", () => {
     isOn = true;
 
   } else {
-    
+
     lamp.classList.remove("on");
     message.classList.remove("show");
     body.classList.remove("light-mode");
@@ -132,4 +147,5 @@ btn.addEventListener("click", () => {
     btn.textContent = "نورني";
     isOn = false;
   }
+
 });
